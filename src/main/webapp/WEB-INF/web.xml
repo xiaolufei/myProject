@@ -6,7 +6,7 @@
     <display-name>Archetype Created Web Application</display-name>
 
     <welcome-file-list>
-        <welcome-file>turnToIndex.jsp</welcome-file>
+        <welcome-file>first.jsp</welcome-file>
     </welcome-file-list>
 
 
@@ -137,6 +137,6 @@
     
     <error-page>
         <error-code>404</error-code>
-        <location>/notfound.jsp</location>
+        <location>/error.jsp</location>
     </error-page>
 </web-app>
