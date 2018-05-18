@@ -9,9 +9,9 @@ public class User implements Serializable {
     /*** id*/
     private Integer id ;
     /*** 用户姓名*/
-    private String username ;
+    private String userName ;
     /*** 用户登录密码*/
-    private String password ;
+    private String passWord ;
     /*** 描述*/
     private String description ;
     /*** 年龄*/
@@ -25,20 +25,20 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPassWord() {
+        return passWord;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
     }
 
     public String getDescription() {
@@ -61,8 +61,8 @@ public class User implements Serializable {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
+                ", username='" + userName + '\'' +
+                ", password='" + passWord + '\'' +
                 ", description='" + description + '\'' +
                 ", age=" + age +
                 '}';
