@@ -9,8 +9,6 @@
         <welcome-file>first.jsp</welcome-file>
     </welcome-file-list>
 
-
-
     <!-- Spring和mybatis的配置文件 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
