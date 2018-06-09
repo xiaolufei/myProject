@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class BaseController {
 
-//    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
+    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     protected HttpServletRequest request;
     @Autowired
