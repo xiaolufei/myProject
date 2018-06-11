@@ -1,5 +1,7 @@
 package com.testssm.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,12 +13,18 @@ import java.util.Date;
 @RequestMapping("/")
 public class IndexController extends BaseController {
 
+    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @RequestMapping("/index")
     public String index(Model model) {
+<<<<<<< HEAD
         model.addAttribute("username","qq");
         logger.info("测试日志打印{}",new Date().getTime());
         return "index";
+=======
+        logger.debug("日志测试{}",new Date().getTime());
+        return "login";
+>>>>>>> 0373304e00570052e6c6e599d9e2fa66c0c4386a
     }
 
 
