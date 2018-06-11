@@ -17,14 +17,10 @@ public class IndexController extends BaseController {
 
     @RequestMapping("/index")
     public String index(Model model) {
-<<<<<<< HEAD
         model.addAttribute("username","qq");
         logger.info("测试日志打印{}",new Date().getTime());
         return "index";
-=======
-        logger.debug("日志测试{}",new Date().getTime());
-        return "login";
->>>>>>> 0373304e00570052e6c6e599d9e2fa66c0c4386a
+
     }
 
 
