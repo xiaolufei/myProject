@@ -30,7 +30,8 @@
     <div class="layui-val-icon larry-login">
     	<div class="layui-code-box">
     		<input type="text" id="code" name="code" placeholder="验证码" maxlength="4" class="login_txtbx">
-            <img src="images/verifyimg.png" alt="" class="verifyImg" id="verifyImg" onClick="javascript:this.src='xxx'+Math.random();">
+            <!--<img src="images/verifyimg.png" alt="" class="verifyImg" id="verifyImg" onClick="javascript:this.src='xxx'+Math.random();">-->
+			<img id="vCode" onclick="updateImageVerifyCode()" src="${ctx }/imageVerifyCode" />
     	</div>
     </div>
     <div class="layui-submit larry-login">
@@ -54,6 +55,20 @@ $(function(){
 	$(".submit_btn").click(function(){
 	  location.href="index.html";
 	});
+	//加载验证码
+    updateImageVerifyCode();
+});
+
+/**
+ * 更新图形验证码
+ */
+function updateImageVerifyCode() {
+    $('.picVerifyCode').val("");
+    $("#vCode").attr("src", ctx + "/imageVerifyCode?" + new Date().getTime());
+}
+// 给图片添加点击事件
+$("#vCode").click(function() {
+    updateImageVerifyCode();
 });
 </script>
 </body>
