@@ -1,6 +1,8 @@
 package com.testssm.async;
 
-import com.aitou.framework.common.exception.ExceptionUtils;
+
+
+import com.testssm.exception.ExceptionUtils;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;

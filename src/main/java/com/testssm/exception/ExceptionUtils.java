@@ -1,7 +1,6 @@
 package com.testssm.exception;
 
-import com.aitou.framework.common.model.TransactionResult;
-import com.aitou.framework.common.resource.MessageResourceBundle;
+
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -11,21 +10,7 @@ import java.io.StringWriter;
  */
 public class ExceptionUtils {
 
-    public static TransactionResult parseException(Exception e) {
-        String errorMessage;
-        String errorCode;
-        if(e instanceof ExecutionException) {
-            errorCode = ((ExecutionException)e).getErrorCode();
-            errorMessage = MessageResourceBundle.getMessage(((ExecutionException)e).getErrorCode());
-            if(errorMessage == null) {
-                errorMessage = e.getMessage();
-            }
-        } else {
-            errorCode = "UNKNOWN_ERROR";
-            errorMessage = "系统发生未知异常！";
-        }
-        return new TransactionResult(errorCode, errorMessage);
-    }
+
 
     public static String exceptionToString(Exception e) {
         StringWriter sw = new StringWriter();

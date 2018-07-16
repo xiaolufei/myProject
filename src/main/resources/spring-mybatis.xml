@@ -48,16 +48,46 @@
         <property name="dataSource" ref="dataSource" />
         <!-- 自动扫描mapping.xml文件 -->
         <property name="mapperLocations" value="classpath:mapping/*.xml"></property>
+        <!--自动扫描实体类文件-->
+        <property name="typeAliasesPackage" value="com.testssm.entity" />
     </bean>
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.crossoverJie.dao" />
+        <property name="basePackage" value="com.testssm.dao" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!--扫描redis配置文件-->
+    <!--<context:property-placeholder ignore-unresolvable="true" location="classpath:jdbc.properties"/>-->
+    <!--设置连接池-->
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <!-- 控制一个pool最多有多少个状态为idle(空闲)的jedis实例 -->
+        <property name="maxIdle" value="${redis.maxIdle}"></property>
+        <!-- 控制一个pool可分配多少个jedis实例 -->
+        <property name="maxTotal" value="${redis.maxTotal}"></property>
+        <!-- 表示当borrow一个jedis实例时，最大的等待时间，如果超过等待时间，则直接抛出JedisConnectionException -->
+        <property name="maxWaitMillis" value="${redis.maxWaitMillis}"></property>
+        <!-- 在borrow一个jedis实例时，是否提前进行validate操作；如果为true，则得到的jedis实例均是可用的 -->
+        <property name="testOnBorrow" value="${redis.testOnBorrow}"></property>
+    </bean>
+    <!--设置链接属性-->
+    <bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="poolConfig" ref="jedisPoolConfig"></property>
+        <property name="hostName" value="${redis.host}"/>
+        <property name="port" value="${redis.port}"/>
+        <property name="password" value="${redis.password}"/>
+        <property name="timeout" value="${redis.timeout}"></property>
+        <property name="usePool" value="${redis.usePool}"></property>
+    </bean>
+
+    <!-- Jedis模板配置  -->
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
+        <property name="connectionFactory"   ref="connectionFactory" />
     </bean>
 
 </beans>

@@ -3,6 +3,8 @@ package com.testssm.utils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 
+import java.util.UUID;
+
 /**
  * 字符串工具类
  * @since 1.0.0
@@ -53,5 +55,13 @@ public final class StringUtil {
         } else {
             return str.lastIndexOf(searchStr);
         }
+    }
+
+    /**
+     * 生成UUID
+     * @return
+     */
+    public static String getUUID(){
+        return UUID.randomUUID().toString().replace("-", "");
     }
 }

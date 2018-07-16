@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class User implements Serializable {
     /*** id*/
-    private Integer id ;
+    private String id ;
     /*** 用户姓名*/
     private String userName ;
     /*** 用户登录密码*/
@@ -17,11 +17,11 @@ public class User implements Serializable {
     /*** 年龄*/
     private Integer age ;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

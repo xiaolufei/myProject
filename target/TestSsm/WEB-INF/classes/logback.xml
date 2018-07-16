@@ -32,4 +32,6 @@
     <root level="INFO">
         <appender-ref ref="STDOUT" />
     </root>
+    <!--sql日志打印-->
+    <logger name="com.testssm.dao.IUserDao" level="DEBUG"/>
 </configuration>
